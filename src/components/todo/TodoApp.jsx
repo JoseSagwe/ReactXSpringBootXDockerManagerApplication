@@ -5,7 +5,7 @@ export default function TodoApp(){
         <div className="TodoApp">
             Task Management Application
             <LoginComponent></LoginComponent>
-            {/* <WelcomeComponent></WelcomeComponent> */}
+            <WelcomeComponent></WelcomeComponent>
         </div>
     )
 }
