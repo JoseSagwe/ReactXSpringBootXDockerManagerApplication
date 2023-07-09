@@ -1,11 +1,17 @@
 import { useState } from 'react'
+import { BrowserRouter,Routes, Route, useNavigate } from 'react-router-dom'
 import './TodoApp.css'
 export default function TodoApp(){
     return(
         <div className="TodoApp">
             Task Management Application
-            <LoginComponent></LoginComponent>
-            <WelcomeComponent></WelcomeComponent>
+            <BrowserRouter>
+                    <Routes>
+                        <Route path='/' element={ <LoginComponent></LoginComponent>} ></Route>
+                        <Route path='/login' element={ <LoginComponent></LoginComponent>} ></Route>
+                        <Route path='/welcome' element={ <WelcomeComponent></WelcomeComponent>} ></Route>
+                    </Routes>
+            </BrowserRouter>
         </div>
     )
 }
@@ -18,6 +24,7 @@ function LoginComponent(){
     
     const [showSuccessMessage, setShowSuccessMessage] = useState(false)
     const [showErrorMessage, setShowErrorMessage] = useState(false)
+    const navigate = useNavigate();
 
     function handleUsernameChange(event){
         setUsername(event.target.value);
@@ -31,6 +38,7 @@ function LoginComponent(){
             console.log("success")
             setShowSuccessMessage(true)
             setShowErrorMessage(false)
+            navigate('/welcome')
         } else{
             console.log("Failed")
             setShowSuccessMessage(false)
@@ -83,7 +91,18 @@ function LoginComponent(){
 function WelcomeComponent(){
     return(
         <div className="Welcome" >
-            Welcome Component
+            Welcome Page
+        </div>
+    )
+}
+
+
+
+function ErrorComponent(){
+    return(
+        <div className="Welcome" >
+            <h1>We are working really hard!!</h1>
+            <div>Apologies please comtact our team Jsphere Sofwares</div>
         </div>
     )
 }
