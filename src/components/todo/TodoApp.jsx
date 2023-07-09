@@ -80,10 +80,10 @@ function LoginComponent(){
 
 
 
-// function WelcomeComponent(){
-//     return(
-//         <div className="Welcome" >
-//             Welcome Component
-//         </div>
-//     )
-// }
+function WelcomeComponent(){
+    return(
+        <div className="Welcome" >
+            Welcome Component
+        </div>
+    )
+}
