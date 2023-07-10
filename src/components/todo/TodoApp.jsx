@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { BrowserRouter,Routes, Route, useNavigate, useParams } from 'react-router-dom'
+import { BrowserRouter,Routes, Route, useNavigate, useParams, Link } from 'react-router-dom'
 import './TodoApp.css'
 export default function TodoApp(){
     return(
@@ -9,6 +9,7 @@ export default function TodoApp(){
                         <Route path='/' element={ <LoginComponent></LoginComponent>} ></Route>
                         <Route path='/login' element={ <LoginComponent></LoginComponent>} ></Route>
                         <Route path='/welcome/:username' element={ <WelcomeComponent></WelcomeComponent>} ></Route><Route path='/welcome' element={ <WelcomeComponent></WelcomeComponent>} ></Route>
+                        <Route path='/todos' element={<ListTodosComponent /> } />
                         <Route path='*' element={ <ErrorComponent></ErrorComponent>} ></Route>
                     </Routes>
             </BrowserRouter>
@@ -100,6 +101,7 @@ function WelcomeComponent(){
         <div>
             <h1>Welcome {username}</h1>
             <h2>Jsphere Sofware is working hard to produce most impactful sofwares</h2>
+            <Link to="/todos">Manage To Do</Link>
         </div>
         </div>
     )
@@ -112,6 +114,54 @@ function ErrorComponent(){
         <div className="errorPage" >
             <h1>Please Contact Our Team!</h1>
             <div>@jSagwe<h1>Jsphere Sofwares</h1> </div>
+        </div>
+    )
+}
+
+
+function ListTodosComponent() {
+
+    const today = new Date()
+    
+    const targetDate = new Date(today.getFullYear()+12, today.getMonth(), today.getDay())
+    
+    const todos = [
+                    {id: 1, description: 'Learn AWS', done: false, targetDate:targetDate},
+                    {id: 2, description: 'Learn Full Stack Dev', done: false, targetDate:targetDate},
+                    {id: 3, description: 'Learn DevOps', done: false, targetDate:targetDate},
+                ]
+
+
+    return (
+        <div className="ListTodosComponent">
+            <h1>Things You Want To Do!</h1>
+            <div>
+                <table>
+                    <thead>
+                            <tr>
+                                <td>ID</td>
+                                <td>Description</td>
+                                <td>Is Done?</td>
+                                <td>Target Date</td>
+                            </tr>
+                    </thead>
+                    <tbody>
+                    {
+                        todos.map(
+                            todo => (
+                                <tr key={todo.id}>
+                                    <td>{todo.id}</td>
+                                    <td>{todo.description}</td>
+                                    <td>{todo.done.toString()}</td>
+                                    <td>{todo.targetDate.toDateString()}</td>
+                                </tr>
+                            )
+                        )
+                    }
+                    </tbody>
+
+                </table>
+            </div>
         </div>
     )
 }
