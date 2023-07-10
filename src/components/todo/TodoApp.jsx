@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { BrowserRouter,Routes, Route, useNavigate } from 'react-router-dom'
+import { BrowserRouter,Routes, Route, useNavigate, useParams } from 'react-router-dom'
 import './TodoApp.css'
 export default function TodoApp(){
     return(
@@ -8,7 +8,7 @@ export default function TodoApp(){
                     <Routes>
                         <Route path='/' element={ <LoginComponent></LoginComponent>} ></Route>
                         <Route path='/login' element={ <LoginComponent></LoginComponent>} ></Route>
-                        <Route path='welcome' element={ <WelcomeComponent></WelcomeComponent>} ></Route><Route path='/welcome' element={ <WelcomeComponent></WelcomeComponent>} ></Route>
+                        <Route path='/welcome/:username' element={ <WelcomeComponent></WelcomeComponent>} ></Route><Route path='/welcome' element={ <WelcomeComponent></WelcomeComponent>} ></Route>
                         <Route path='*' element={ <ErrorComponent></ErrorComponent>} ></Route>
                     </Routes>
             </BrowserRouter>
@@ -38,7 +38,7 @@ function LoginComponent(){
             console.log("success")
             setShowSuccessMessage(true)
             setShowErrorMessage(false)
-            navigate('/welcome')
+            navigate(`/welcome/${username}`)
         } else{
             console.log("Failed")
             setShowSuccessMessage(false)
@@ -90,10 +90,15 @@ function LoginComponent(){
 
 
 function WelcomeComponent(){
+
+    const {username} = useParams()
+
+    console.log(username)
+
     return(
         <div className="Welcome">
         <div>
-            <h1>Welcome Developer Joseph</h1>
+            <h1>Welcome {username}</h1>
             <h2>Jsphere Sofware is working hard to produce most impactful sofwares</h2>
         </div>
         </div>
