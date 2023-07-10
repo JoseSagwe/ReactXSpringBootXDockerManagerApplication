@@ -4,12 +4,12 @@ import './TodoApp.css'
 export default function TodoApp(){
     return(
         <div className="TodoApp">
-            Task Management Application
             <BrowserRouter>
                     <Routes>
                         <Route path='/' element={ <LoginComponent></LoginComponent>} ></Route>
                         <Route path='/login' element={ <LoginComponent></LoginComponent>} ></Route>
-                        <Route path='/welcome' element={ <WelcomeComponent></WelcomeComponent>} ></Route>
+                        <Route path='welcome' element={ <WelcomeComponent></WelcomeComponent>} ></Route><Route path='/welcome' element={ <WelcomeComponent></WelcomeComponent>} ></Route>
+                        <Route path='*' element={ <ErrorComponent></ErrorComponent>} ></Route>
                     </Routes>
             </BrowserRouter>
         </div>
@@ -34,7 +34,7 @@ function LoginComponent(){
     }
 
     function handleSubmit(){
-        if(username==="Developer" && password==="1234"){
+        if(username==="Developer Joseph" && password==="1234"){
             console.log("success")
             setShowSuccessMessage(true)
             setShowErrorMessage(false)
@@ -67,6 +67,7 @@ function LoginComponent(){
 
     return(
         <div className="LoginForm">
+            <h1>Time To Log In To Your Favorite App!</h1>
             {showSuccessMessage && <div className="successMessage">Authenticated Successfully</div>}
             {showErrorMessage && <div className="errorMessage">Authentcation Failed. Please Check Your Credentials</div>}
             {/* <SuccessMessageComponent></SuccessMessageComponent>
@@ -90,8 +91,11 @@ function LoginComponent(){
 
 function WelcomeComponent(){
     return(
-        <div className="Welcome" >
-            Welcome Page
+        <div className="Welcome">
+        <div>
+            <h1>Welcome Developer Joseph</h1>
+            <h2>Jsphere Sofware is working hard to produce most impactful sofwares</h2>
+        </div>
         </div>
     )
 }
@@ -100,9 +104,9 @@ function WelcomeComponent(){
 
 function ErrorComponent(){
     return(
-        <div className="Welcome" >
-            <h1>We are working really hard!!</h1>
-            <div>Apologies please comtact our team Jsphere Sofwares</div>
+        <div className="errorPage" >
+            <h1>Please Contact Our Team!</h1>
+            <div>@jSagwe<h1>Jsphere Sofwares</h1> </div>
         </div>
     )
 }
