@@ -1,6 +1,9 @@
 import { useState } from 'react'
 import { BrowserRouter,Routes, Route, useNavigate, useParams, Link } from 'react-router-dom'
 import './TodoApp.css'
+import LogoutComponent from './LogoutComponent'
+// import FooterComponent from './FooterComponent'
+import HeaderComponent from './HearderComponent'
 export default function TodoApp(){
     return(
         <div className="TodoApp">
@@ -14,7 +17,7 @@ export default function TodoApp(){
                         <Route path='*' element={ <ErrorComponent></ErrorComponent>} ></Route>
                         <Route path='/logout' element={<LogoutComponent></LogoutComponent>}></Route>
                     </Routes>
-            <FooterComponent></FooterComponent>
+            {/* <FooterComponent></FooterComponent> */}
             </BrowserRouter>
            
         </div>
@@ -165,55 +168,6 @@ function ListTodosComponent() {
                     </tbody>
 
                 </table>
-            </div>
-        </div>
-    )
-}
-
-
-function HeaderComponent() {
-    return (
-        
-        <header className="border-bottom border-light border-5 mb-5 p-2">
-            <div className="container">
-                <div className="row">
-                    <nav className="navbar navbar-expand-lg">
-                        <a className="navbar-brand ms-2 fs-2 fw-bold text-black" href="https://joseph-sagwe.netlify.app/">Developer Joseph</a>
-                        <div className="collapse navbar-collapse">
-                            <ul className="navbar-nav">
-                                <li className="nav-item fs-5"><Link className="nav-link" to="/welcome/in28minutes">Home</Link></li>
-                                <li className="nav-item fs-5"><Link className="nav-link" to="/todos">Todos</Link></li>
-                            </ul>
-                        </div>
-                        <ul className="navbar-nav">
-                            <li className="nav-item fs-5"><Link className="nav-link" to="/login">Login</Link></li>
-                            <li className="nav-item fs-5"><Link className="nav-link" to="/logout">Logout</Link></li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-        </header>
-    )
-}
-
-
-
-function FooterComponent() {
-    return (
-        <footer className="footer">
-            <div className="container">
-                Your Footer
-            </div>
-        </footer>
-    )
-}
-
-function LogoutComponent() {
-    return (
-        <div className="LogoutComponent">
-            <h1>You are logged out!</h1>
-            <div>
-                Thank you for using our App. Come back soon!
             </div>
         </div>
     )
