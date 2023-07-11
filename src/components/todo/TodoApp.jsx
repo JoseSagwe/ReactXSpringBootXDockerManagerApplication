@@ -4,6 +4,7 @@ import './TodoApp.css'
 export default function TodoApp(){
     return(
         <div className="TodoApp">
+            <HeaderComponent></HeaderComponent>
             <BrowserRouter>
                     <Routes>
                         <Route path='/' element={ <LoginComponent></LoginComponent>} ></Route>
@@ -11,8 +12,10 @@ export default function TodoApp(){
                         <Route path='/welcome/:username' element={ <WelcomeComponent></WelcomeComponent>} ></Route><Route path='/welcome' element={ <WelcomeComponent></WelcomeComponent>} ></Route>
                         <Route path='/todos' element={<ListTodosComponent /> } />
                         <Route path='*' element={ <ErrorComponent></ErrorComponent>} ></Route>
+                        <Route path='/logout' element={<LogoutComponent></LogoutComponent>}></Route>
                     </Routes>
             </BrowserRouter>
+            <FooterComponent></FooterComponent>
         </div>
     )
 }
@@ -133,10 +136,10 @@ function ListTodosComponent() {
 
 
     return (
-        <div className="ListTodosComponent">
+        <div className="container">
             <h1>Things You Want To Do!</h1>
             <div>
-                <table>
+                <table  className='table'>
                     <thead>
                             <tr>
                                 <td>ID</td>
@@ -161,6 +164,34 @@ function ListTodosComponent() {
                     </tbody>
 
                 </table>
+            </div>
+        </div>
+    )
+}
+
+
+function HeaderComponent() {
+    return (
+        <div className="header">
+            Header <hr/>
+        </div>
+    )
+}
+
+function FooterComponent() {
+    return (
+        <div className="footer">
+            <hr/> Footer 
+        </div>
+    )
+}
+
+function LogoutComponent() {
+    return (
+        <div className="LogoutComponent">
+            <h1>You are logged out!</h1>
+            <div>
+                Thank you for using our App. Come back soon!
             </div>
         </div>
     )
