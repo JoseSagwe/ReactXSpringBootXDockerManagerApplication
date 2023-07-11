@@ -7,7 +7,7 @@ import WelcomeComponent from './WelcomeComponent'
 import LoginComponent from './LoginComponent'
 // import FooterComponent from './FooterComponent'
 import HeaderComponent from './HearderComponent'
-import AuthProvider from '../Security/AuthContext'
+import AuthProvider from './security/AuthContext'
 export default function TodoApp(){
     return(
         <div className="TodoApp">
