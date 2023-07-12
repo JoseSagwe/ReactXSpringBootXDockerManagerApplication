@@ -1,34 +1,50 @@
 import { useState } from 'react'
-import {useNavigate } from 'react-router-dom'
-export default function LoginComponent(){
+import {useNavigate} from 'react-router-dom'
+import { useAuth } from './security/AuthContext'
+
+export default function LoginComponent() {
 
     const [username, setUsername] = useState('')
+
     const [password, setPassword] = useState('')
-    
-    const [showSuccessMessage, setShowSuccessMessage] = useState(false)
+
+    // const [showSuccessMessage, setShowSuccessMessage] = useState(false)
+
     const [showErrorMessage, setShowErrorMessage] = useState(false)
-    const navigate = useNavigate();
 
-    function handleUsernameChange(event){
-        setUsername(event.target.value);
-    }
-    function handlePasswordChange(event){
-        setPassword(event.target.value); 
-    }
+    const navigate = useNavigate()
 
-    function handleSubmit(){
-        if(username==="Developer Joseph" && password==="1234"){
-            console.log("success")
-            setShowSuccessMessage(true)
-            setShowErrorMessage(false)
-            navigate(`/welcome/${username}`)
-        } else{
-            console.log("Failed")
-            setShowSuccessMessage(false)
-            setShowErrorMessage(true)
-        }
+    const authContext = useAuth()
+
+    function handleUsernameChange(event) {
+        setUsername(event.target.value)
     }
 
+    function handlePasswordChange(event) {
+        setPassword(event.target.value)
+    }
+
+        function handleSubmit() {
+            if(authContext.login(username, password)){
+                navigate(`/welcome/${username}`)
+            } else {
+                setShowErrorMessage(true)
+            }
+
+        // if(username==='Developer Joseph' && password==='1234'){
+        //     authContext.setAuthenticated(true)
+        //     console.log('Success')
+        //     setShowSuccessMessage(true)
+        //     setShowErrorMessage(false)
+        //     navigate(`/welcome/${username}`)
+            
+        // } else {
+        //     authContext.setAuthenticated(false)
+        //     console.log('Failed')
+        //     setShowSuccessMessage(false)
+        //     setShowErrorMessage(true)
+        // }
+    }
     
 // function SuccessMessageComponent(){
 //     if (showSuccessMessage){
@@ -51,7 +67,7 @@ export default function LoginComponent(){
     return(
         <div className="LoginForm">
             <h1>Time To Log In To Your Favorite App!</h1>
-            {showSuccessMessage && <div className="successMessage">Authenticated Successfully</div>}
+            {/* {showSuccessMessage && <div className="successMessage">Authenticated Successfully</div>} */}
             {showErrorMessage && <div className="errorMessage">Authentcation Failed. Please Check Your Credentials</div>}
             {/* <SuccessMessageComponent></SuccessMessageComponent>
             <ErrorMessageComponent></ErrorMessageComponent> */}
