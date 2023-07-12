@@ -1,10 +1,12 @@
 import { useParams, Link } from 'react-router-dom'
+import axios from 'axios'
 export default function WelcomeComponent(){
 
     const {username} = useParams()
 
     function callHelloRestApi(){
         console.log("called")
+        axios.get('http://localhost:8080/hello')
     }
 
     return(
