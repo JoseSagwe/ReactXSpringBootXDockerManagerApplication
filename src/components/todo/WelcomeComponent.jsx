@@ -9,6 +9,31 @@ export default function WelcomeComponent(){
         axios.get('http://localhost:8080/hello')
     }
 
+
+
+
+    // function callHelloWorldRestApi(){
+    //     console.log('called')
+              
+    //     retrieveHelloWorldPathVariable('Ranga', authContext.token)
+    //         .then( (response) => successfulResponse(response) )
+    //         .catch ( (error) => errorResponse(error) )
+    //         .finally ( () => console.log('cleanup') )
+
+    // }
+
+    // function successfulResponse(response) {
+    //     console.log(response)
+    //     //setMessage(response.data)
+    //     setMessage(response.data.message)
+    // }
+
+    // function errorResponse(error) {
+    //     console.log(error)
+    // }
+
+
+
     return(
         <div className="Welcome">
         <div>
