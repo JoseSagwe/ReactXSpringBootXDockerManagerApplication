@@ -30,7 +30,6 @@ export default function LoginComponent() {
             } else {
                 setShowErrorMessage(true)
             }
-
         // if(username==='Developer Joseph' && password==='1234'){
         //     authContext.setAuthenticated(true)
         //     console.log('Success')
@@ -45,7 +44,6 @@ export default function LoginComponent() {
         //     setShowErrorMessage(true)
         // }
     }
-    
 // function SuccessMessageComponent(){
 //     if (showSuccessMessage){
 //     return  <div className="successMessage">Authenticated Successfully</div>
