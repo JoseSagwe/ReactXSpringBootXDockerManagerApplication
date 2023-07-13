@@ -78,7 +78,7 @@ export default function LoginComponent() {
             <input type="password" name="password" value={password} onChange={handlePasswordChange}/>
         </div>
         <div>
-            <button type="button" name="login" onClick={handleSubmit}>login</button>
+            <button type="button" name="login" className="btn btn-primary" onClick={handleSubmit}>login</button>
         </div>
     </div>
     )
