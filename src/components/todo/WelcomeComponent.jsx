@@ -1,53 +1,30 @@
 import { useParams, Link } from 'react-router-dom'
 import axios from 'axios'
+
 export default function WelcomeComponent(){
 
     const {username} = useParams()
 
-    // function callHelloRestApi(){
-    //     console.log("called")
-    //     axios.get('http://localhost:8080/hello')
-    // }
-
     function callHelloRestApi(){
-      console.log('called')
-      retrieveHelloWorldPathVariable('Joseph', authContext.token)
-          .then( (response) => successfulResponse(response) )
+        console.log("called")
+        axios.get('http://localhost:8080/hello')
+        .then( (response) => successfulResponse(response) )
           .catch ( (error) => errorResponse(error) )
           .finally ( () => console.log('cleanup') )
+        }
 
-  }
+
 
   function successfulResponse(response) {
       console.log(response)
       //setMessage(response.data)
-      setMessage(response.data.message)
+      // setMessage(response.data.message)
   }
 
   function errorResponse(error) {
       console.log(error)
   }
 
-
-    // function callHelloWorldRestApi(){
-    //     console.log('called')
-              
-    //     retrieveHelloWorldPathVariable('Ranga', authContext.token)
-    //         .then( (response) => successfulResponse(response) )
-    //         .catch ( (error) => errorResponse(error) )
-    //         .finally ( () => console.log('cleanup') )
-
-    // }
-
-    // function successfulResponse(response) {
-    //     console.log(response)
-    //     //setMessage(response.data)
-    //     setMessage(response.data.message)
-    // }
-
-    // function errorResponse(error) {
-    //     console.log(error)
-    // }
 
 
 
@@ -63,4 +40,5 @@ export default function WelcomeComponent(){
         </div>
         </div>
     )
-}
+
+  }
