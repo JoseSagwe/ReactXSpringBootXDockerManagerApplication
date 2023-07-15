@@ -10,7 +10,7 @@ export default function FooterComponent() {
     return (
         <footer className="footer">
             <div className="container">
-                Your Footer
+                Developer Joseph
             </div>
         </footer>
     )
