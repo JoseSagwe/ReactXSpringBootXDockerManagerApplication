@@ -65,7 +65,7 @@ export default function LoginComponent() {
 
     return(
         <div className="LoginForm">
-            <h1>Time To Log In To Your Favorite App!</h1>
+            <h1>Time To Log In To Your Favorite Application!</h1>
             {/* {showSuccessMessage && <div className="successMessage">Authenticated Successfully</div>} */}
             {showErrorMessage && <div className="errorMessage">Authentcation Failed. Please Check Your Credentials</div>}
             {/* <SuccessMessageComponent></SuccessMessageComponent>
