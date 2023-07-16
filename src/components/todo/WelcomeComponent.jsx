@@ -1,6 +1,7 @@
 import { useParams, Link } from 'react-router-dom'
 import { useState } from 'react'
-import retrieveHelloBean from './api/HelloWorldApiService'
+// import retrieveHelloBean from './api/HelloWorldApiService'
+import {retrieveHelloBean, retrieveHelloBeanParam}  from './api/HelloWorldApiService'
 
 export default function WelcomeComponent(){
 
@@ -22,12 +23,19 @@ export default function WelcomeComponent(){
         //     .finally ( () => console.log('cleanup') )
 
 
-        retrieveHelloBean()
+        // retrieveHelloBean()
+        //   .then( (response) => successfulResponse(response) )
+        //     .catch ( (error) => errorResponse(error) )
+        //     .finally ( () => console.log('cleanup') )
+        // }
+        
+
+         retrieveHelloBeanParam('Developer Joseph')
           .then( (response) => successfulResponse(response) )
             .catch ( (error) => errorResponse(error) )
             .finally ( () => console.log('cleanup') )
         }
-
+        
 
 
   function successfulResponse(response) {
