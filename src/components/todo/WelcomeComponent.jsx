@@ -1,6 +1,6 @@
 import { useParams, Link } from 'react-router-dom'
-import axios from 'axios'
 import { useState } from 'react'
+import retrieveHelloBean from './api/HelloWorldApiService'
 
 export default function WelcomeComponent(){
 
@@ -10,12 +10,19 @@ export default function WelcomeComponent(){
 
     function callHelloRestApi(){
         console.log("called")
+        
         // axios.get('http://localhost:8080/greet')
         // .then( (response) => successfulResponse(response) )
         //   .catch ( (error) => errorResponse(error) )
         //   .finally ( () => console.log('cleanup') )
 
-          axios.get('http://localhost:8080/hello')
+        //   axios.get('http://localhost:8080/hello')
+        //   .then( (response) => successfulResponse(response) )
+        //     .catch ( (error) => errorResponse(error) )
+        //     .finally ( () => console.log('cleanup') )
+
+
+        retrieveHelloBean()
           .then( (response) => successfulResponse(response) )
             .catch ( (error) => errorResponse(error) )
             .finally ( () => console.log('cleanup') )
@@ -25,7 +32,8 @@ export default function WelcomeComponent(){
 
   function successfulResponse(response) {
       console.log(response)
-      setMessage(response.data)
+    //   setMessage(response.data)
+     setMessage(response.data.message)
   }
 
   function errorResponse(error) {
