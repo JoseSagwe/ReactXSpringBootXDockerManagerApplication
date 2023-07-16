@@ -1,23 +1,31 @@
 import { useParams, Link } from 'react-router-dom'
 import axios from 'axios'
+import { useState } from 'react'
 
 export default function WelcomeComponent(){
 
     const {username} = useParams()
 
+    const [message, setMessage] = useState(null)
+
     function callHelloRestApi(){
         console.log("called")
-        axios.get('http://localhost:8080/hello')
-        .then( (response) => successfulResponse(response) )
-          .catch ( (error) => errorResponse(error) )
-          .finally ( () => console.log('cleanup') )
+        // axios.get('http://localhost:8080/greet')
+        // .then( (response) => successfulResponse(response) )
+        //   .catch ( (error) => errorResponse(error) )
+        //   .finally ( () => console.log('cleanup') )
+
+          axios.get('http://localhost:8080/hello')
+          .then( (response) => successfulResponse(response) )
+            .catch ( (error) => errorResponse(error) )
+            .finally ( () => console.log('cleanup') )
         }
 
 
 
   function successfulResponse(response) {
       console.log(response)
-     
+      setMessage(response.data)
   }
 
   function errorResponse(error) {
@@ -31,6 +39,7 @@ export default function WelcomeComponent(){
             <h2>Jsphere Sofware is working hard to produce most impactful sofwares</h2>
             <Link to="/todos">Manage To Do</Link>
         </div>
+        <div className='text-info'>{message}</div>
         <div>
             <button className='btn btn-success m-5' onClick={callHelloRestApi}>Call Hello API</button>
         </div>
