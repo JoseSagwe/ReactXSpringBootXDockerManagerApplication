@@ -3,7 +3,6 @@ import axios from 'axios'
 // export default function retrieveHelloBean(){
 //     return(
 //     axios.get('http://localhost:8080/helloB')
-
 //     )
 // }
 
@@ -22,7 +21,7 @@ export  const retrieveHelloBean = () =>apiClient.get('/helloB')
 // to configure a common base Url using Axios
 
 
-// //////////           OR              //////////
+// ///        OR              //////////
 export  const retrieveHelloBeanParam = (username) => apiClient.get(`/hello-bean/${username}`)
 
 
