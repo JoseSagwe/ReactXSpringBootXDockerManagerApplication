@@ -10,8 +10,7 @@ function HeaderComponent() {
     function logout() {
         authContext.logout()
     }
-    //console.log(authContext);
-    //console.log(authContext.number);
+ 
     
     return (
         
