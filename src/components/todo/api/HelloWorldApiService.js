@@ -13,13 +13,9 @@ const apiClient = axios.create(
     }
 )
 
-
-
 export  const retrieveHelloBean = () =>apiClient.get('/helloB')
 
-
 // to configure a common base Url using Axios
-
 
 // ///        OR              //////////
 export  const retrieveHelloBeanParam = (username) => apiClient.get(`/hello-bean/${username}`)
