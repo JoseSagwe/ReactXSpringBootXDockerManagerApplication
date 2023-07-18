@@ -17,13 +17,12 @@ function ListTodosComponent() {
     //             ]
 
     useEffect (
-        () => refreshTodos()
-    )
+        () => refreshTodos(), [])
 
     function refreshTodos(){
         retrieveAllTodosForUsername('joseph')
         .then(response => {
-            console.log(response.data)
+            // console.log(response.data)
             setTodos(response.data)
         }
         )
@@ -39,10 +38,9 @@ function ListTodosComponent() {
                 <table  className='table'>
                     <thead>
                             <tr>
-                                <td>ID</td>
-                                <td>Description</td>
-                                <td>Is Done?</td>
-                                <td>Target Date</td>
+                                <th>Description</th>
+                                <th>Is Done?</th>
+                                <th>Target Date</th>
                             </tr>
                     </thead>
                     <tbody>
@@ -50,7 +48,6 @@ function ListTodosComponent() {
                         todos.map(
                             todo => (
                                 <tr key={todo.id}>
-                                    <td>{todo.id}</td>
                                     <td>{todo.description}</td>
                                     <td>{todo.done.toString()}</td>
                                     {/* <td>{todo.targetDate.toDateString()}</td> */}
