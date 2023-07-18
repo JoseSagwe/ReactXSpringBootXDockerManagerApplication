@@ -1,11 +1,16 @@
 import { useEffect, useState } from "react"
 
 import {retrieveAllTodosForUsernameApi, deleteTodoApi} from './api/TodoApiService' 
+import { useAuth } from "./security/AuthContext"
 
 function ListTodosComponent() {
 
     const today = new Date()
+
+    const AuthContext = useAuth()
     
+    const username = AuthContext.username
+
     const targetDate = new Date(today.getFullYear()+12, today.getMonth(), today.getDay())
     
     const [todos, setTodos] = useState([])
@@ -22,7 +27,7 @@ function ListTodosComponent() {
         () => refreshTodos(), [])
 
     function refreshTodos(){
-        retrieveAllTodosForUsernameApi('joseph')
+        retrieveAllTodosForUsernameApi(username)
         .then(response => {
             // console.log(response.data)
             setTodos(response.data)
@@ -33,7 +38,7 @@ function ListTodosComponent() {
 
     function deleteTodo(id){
         console.log("clicked " + id)
-        deleteTodoApi('joseph', id)
+        deleteTodoApi(username, id)
            
         .then(
             () => {
@@ -51,7 +56,6 @@ function ListTodosComponent() {
         <div className="container">
             <h1>Things You Want To Do!</h1>
             {message &&  <div className="alert alert-warning">{message}</div> }
-           
             <div>
                 <table  className='table'>
                     <thead>
@@ -60,6 +64,7 @@ function ListTodosComponent() {
                                 <th>Is Done?</th>
                                 <th>Target Date</th>
                                 <th>Delete</th>
+                                <th>Update</th>
                             </tr>
                     </thead>
                     <tbody>
@@ -72,6 +77,7 @@ function ListTodosComponent() {
                                     {/* <td>{todo.targetDate.toDateString()}</td> */}
                                     <td>{todo.targetDate.toString()}</td>
                                     <td><button className="btn btn-warning" onClick={ () => deleteTodo(todo.id)} >Delete</button></td>
+                                    <td><button className="btn btn-success" onClick={ () => deleteTodo(todo.id)} >Update</button></td>
                                 </tr>
                             )
                         )
