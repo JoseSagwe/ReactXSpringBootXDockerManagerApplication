@@ -8,6 +8,9 @@ const apiClient = axios.create(
 
 
             // http://localhost:8080/users/joseph/todos
-export  const retrieveAllTodosForUsername = (username) => apiClient.get(`/users/${username}/todos`)
+export  const retrieveAllTodosForUsernameApi = (username) => apiClient.get(`/users/${username}/todos`)
+
+            // http://localhost:8080/users/joseph/todos/2
+export  const deleteTodoApi = (username, id) => apiClient.delete(`/users/${username}/todos/${id}`)
 
 
