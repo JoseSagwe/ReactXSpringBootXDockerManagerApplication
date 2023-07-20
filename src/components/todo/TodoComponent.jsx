@@ -1,5 +1,5 @@
-import { useParams} from 'react-router-dom'
-import { retrieveTodoApi } from './api/TodoApiService'
+import { useParams,useNavigate} from 'react-router-dom'
+import { retrieveTodoApi, udpdateTodoApi } from './api/TodoApiService'
 import { useAuth } from './security/AuthContext'
 import { useEffect, useState } from 'react'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
@@ -15,6 +15,8 @@ export default function TodoComponent(){
 
     const authContext = useAuth()
 
+    const navigate = useNavigate()
+
     const username = authContext.username
 
     useEffect(
@@ -22,6 +24,7 @@ export default function TodoComponent(){
     )
 
     function retrieveTodos(){
+        if(id !=-1){
         retrieveTodoApi(username, id)
         .then(response => {
            setDescription(response.data.description)
@@ -29,16 +32,38 @@ export default function TodoComponent(){
         })
         .catch(error => console.log(error))
     }
+}
 
         //Onsubmit function
     function onSubmit(values){
         console.log(values)
+        const todo = {
+            id: id,
+            username: username,
+            description: values.description,
+            targetDate: values.targetDate,
+            done: false
+        }
+        console.log(todo)
+        udpdateTodoApi(username, id, todo)
+        .then(response => {
+            navigate('/todos')
+         })
+         .catch(error => console.log(error))
     }
 
             //Validation function
     function validate(values){
         let errors = {
-            description: 'Enter valid description'
+            // description: 'Enter valid description' ,
+            // targetDate: 'Enter valid targetDate'
+        }
+
+        if(values.description.length<5){
+            errors.description = 'Enter atleast 5 characters'
+        }
+        if(values.targetDate == null || values.targetDate == '' ){
+            errors.targetDate = 'Enter Target Date'
         }
 
         console.log(values)
@@ -54,6 +79,8 @@ export default function TodoComponent(){
         enableReinitialize={true}
         onSubmit={onSubmit}
         validate = {validate}
+        validateOnChange = {false}
+        validateOnBlur = {false}
         >
         {props => (
             <Form>
