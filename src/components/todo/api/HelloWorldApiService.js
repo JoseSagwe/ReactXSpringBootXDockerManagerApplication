@@ -1,4 +1,4 @@
-import axios from 'axios'
+import { apiClient } from './ApiClient'
 
 // export default function retrieveHelloBean(){
 //     return(
@@ -6,23 +6,19 @@ import axios from 'axios'
 //     )
 // }
 
-const apiClient = axios.create(
-    {
-        baseURL: 'http://localhost:8080'
-    }
-)
-
 export  const retrieveHelloBean = () =>apiClient.get('/helloB')
 
 // to configure a common base Url using Axios
 
 // ///        OR              //////////
-export  const retrieveHelloBeanParam = (username) => apiClient.get(`/hello-bean/${username}`, {
-                    headers: {
-                        Authorization: 'Basic dXNlcjoxMjM0 '
-                    }
+export  const retrieveHelloBeanParam = (username, token) => apiClient.get(`/hello-bean/${username}` 
+                        // ,{
+                //     headers: {
+                //         Authorization: token
+                //     }
 
-                })
+                // }
+                )
 
 
                 

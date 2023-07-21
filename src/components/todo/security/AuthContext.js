@@ -1,4 +1,5 @@
 import { createContext, useContext, useState } from "react";
+import { apiClient } from "../api/ApiClient";
 import { executeBasicAuthenticationService } from "../api/HelloWorldApiService";
 
 //1: Create a Context
@@ -15,6 +16,8 @@ export default function AuthProvider({ children }) {
     const [isAuthenticated, setAuthenticated] = useState(false)
 
     const [username, setUsername] = useState(null)
+
+    const [token, setToken] = useState(null)
 
     //setInterval( () => setNumber(number+1), 10000)
 
@@ -40,24 +43,33 @@ export default function AuthProvider({ children }) {
         async function login(username, password){
 
             const baToken = 'Basic ' + window.btoa(username + ":" + password)
-
-            const response = await executeBasicAuthenticationService(baToken)
-            
+ 
             try {
+
+                const response = await executeBasicAuthenticationService(baToken)
 
                 if(response.status==200){
                     setAuthenticated(true)
                     setUsername(username)
+                    setToken(baToken)
+
+                    //Setting token to be used in all the API calls
+                apiClient.interceptors.request.use(
+                    (config) => {
+                        console.log('intercepting and adding a token')
+                        config.headers.Authorization = baToken
+                        return config
+                    }
+                )
+
                     return true
                     
                 } else {
-                    setAuthenticated(false)
-                    setUsername(null)
+                    logout()
                     return false
                 }
         } catch(error){
-                    setAuthenticated(false)
-                    setUsername(null)
+                    logout()
                     return false
         }
         }
@@ -65,9 +77,11 @@ export default function AuthProvider({ children }) {
 
     function logout() {
         setAuthenticated(false)
+        setToken(null)
+        setUsername(null)
      }
     return (
-        <AuthContext.Provider value={ { isAuthenticated, setAuthenticated, login, logout, username}  }>
+        <AuthContext.Provider value={ { isAuthenticated, setAuthenticated, login, logout, username, token}  }>
             {children}
         </AuthContext.Provider>
     )
