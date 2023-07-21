@@ -17,6 +17,24 @@ export  const retrieveHelloBean = () =>apiClient.get('/helloB')
 // to configure a common base Url using Axios
 
 // ///        OR              //////////
-export  const retrieveHelloBeanParam = (username) => apiClient.get(`/hello-bean/${username}`)
+export  const retrieveHelloBeanParam = (username) => apiClient.get(`/hello-bean/${username}`, {
+                    headers: {
+                        Authorization: 'Basic dXNlcjoxMjM0 '
+                    }
+
+                })
+
+
+                
+export  const  executeBasicAuthenticationService 
+                    = (token) => apiClient.get(`/basicauth`, {
+                        
+                        headers: {
+                        Authorization: token
+                    }
+
+                })
+
+
 
 

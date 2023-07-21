@@ -1,4 +1,5 @@
 import { createContext, useContext, useState } from "react";
+import { executeBasicAuthenticationService } from "../api/HelloWorldApiService";
 
 //1: Create a Context
 export const AuthContext = createContext()
@@ -19,18 +20,48 @@ export default function AuthProvider({ children }) {
 
     //const valueToBeShared = {number, isAuthenticated, setAuthenticated}
 
-    function login(username, password){
-            if(username==='Developer Joseph' && password==='1234'){
-                setAuthenticated(true)
-                setUsername(username)
-                return true
+//HARDCODED AUTHENTICATION
+
+    // function login(username, password){
+    //         if(username==='Developer Joseph' && password==='1234'){
+    //             setAuthenticated(true)
+    //             setUsername(username)
+    //             return true
                 
-            } else {
-                setAuthenticated(false)
-                setUsername(null)
-                return false
-            }
+    //         } else {
+    //             setAuthenticated(false)
+    //             setUsername(null)
+    //             return false
+    //         }
+    //     }
+
+
+    ///BASIC AUTHENTICATION
+        async function login(username, password){
+
+            const baToken = 'Basic ' + window.btoa(username + ":" + password)
+
+            const response = await executeBasicAuthenticationService(baToken)
+            
+            try {
+
+                if(response.status==200){
+                    setAuthenticated(true)
+                    setUsername(username)
+                    return true
+                    
+                } else {
+                    setAuthenticated(false)
+                    setUsername(null)
+                    return false
+                }
+        } catch(error){
+                    setAuthenticated(false)
+                    setUsername(null)
+                    return false
         }
+        }
+
 
     function logout() {
         setAuthenticated(false)
