@@ -6,6 +6,7 @@ import { apiClient } from './ApiClient'
 //     )
 // }
 
+
 export  const retrieveHelloBean = () =>apiClient.get('/helloB')
 
 // to configure a common base Url using Axios
@@ -19,9 +20,7 @@ export  const retrieveHelloBeanParam = (username, token) => apiClient.get(`/hell
 
                 // }
                 )
-
-
-                
+      
 export  const  executeBasicAuthenticationService 
                     = (token) => apiClient.get(`/basicauth`, {
                         

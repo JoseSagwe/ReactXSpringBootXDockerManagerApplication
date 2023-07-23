@@ -55,7 +55,7 @@ export default function WelcomeComponent(){
         <div className="Welcome">
         <div>
             <h1>Welcome {username}</h1>
-            <h2>Jsphere Sofware is working hard to produce most impactful sofwares</h2>
+            <h2>Jsphere Sofware is a sofware vending station.</h2>
             <Link to="/todos">Manage To Do</Link>
         </div>
         <div className='text-info'>{message}</div>
