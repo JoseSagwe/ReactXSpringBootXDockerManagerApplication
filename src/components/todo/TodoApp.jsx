@@ -6,7 +6,6 @@ import ErrorComponent from './ErrorComponent'
 import WelcomeComponent from './WelcomeComponent'
 import LoginComponent from './LoginComponent'
 import TodoComponent from './TodoComponent'
-// import FooterComponent from './FooterComponent'
 import HeaderComponent from './HearderComponent'
 import AuthProvider, {useAuth} from './security/AuthContext'
 
