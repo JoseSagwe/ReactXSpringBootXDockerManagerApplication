@@ -4,6 +4,7 @@ import { useState } from 'react'
 import {retrieveHelloBean, retrieveHelloBeanParam}  from './api/HelloWorldApiService'
 import { useAuth } from './security/AuthContext'
 
+
 export default function WelcomeComponent(){
 
     const {username} = useParams()
@@ -20,12 +21,11 @@ export default function WelcomeComponent(){
         //   .catch ( (error) => errorResponse(error) )
         //   .finally ( () => console.log('cleanup') )
 
-        
+
         //   axios.get('http://localhost:8080/hello')
         //   .then( (response) => successfulResponse(response) )
         //     .catch ( (error) => errorResponse(error) )
         //     .finally ( () => console.log('cleanup') )
-
 
         // retrieveHelloBean()
         //   .then( (response) => successfulResponse(response) )
