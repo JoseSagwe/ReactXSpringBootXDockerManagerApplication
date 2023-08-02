@@ -6,9 +6,7 @@ import { apiClient } from './ApiClient'
 //     )
 // }
 
-
 export  const retrieveHelloBean = () =>apiClient.get('/helloB')
-
 
 
 // to configure a common base Url using Axios
