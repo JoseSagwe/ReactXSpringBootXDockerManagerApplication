@@ -35,7 +35,6 @@ export default function TodoApp(){
                             </AuthenticatedRoute> 
                         } />
                         
-                        
                         <Route path='/todos' element={
                             <AuthenticatedRoute>
                                 <ListTodosComponent /> 
@@ -55,7 +54,6 @@ export default function TodoApp(){
                         } />
                         
                         <Route path='*' element={<ErrorComponent /> } />
-
                     </Routes>
                 </BrowserRouter>
             </AuthProvider>

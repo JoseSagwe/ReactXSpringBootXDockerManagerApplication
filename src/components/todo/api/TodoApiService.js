@@ -2,6 +2,8 @@
 import { apiClient } from "./ApiClient"
 
 
+
+
 //Getting all todos
             // http://localhost:8080/users/joseph/todos
 export  const retrieveAllTodosForUsernameApi = (username) => apiClient.get(`/users/${username}/todos`)
