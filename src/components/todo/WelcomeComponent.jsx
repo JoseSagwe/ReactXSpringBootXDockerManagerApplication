@@ -51,7 +51,6 @@ export default function WelcomeComponent(){
   function errorResponse(error) {
       console.log(error)
   }
-
     return(
         <div className="Welcome">
         <div>

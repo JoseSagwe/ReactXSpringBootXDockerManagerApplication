@@ -7,8 +7,6 @@ export default function LoginComponent() {
     const [username, setUsername] = useState('')
 
     const [password, setPassword] = useState('')
-
-    
     // const [showSuccessMessage, setShowSuccessMessage] = useState(false)
 
     const [showErrorMessage, setShowErrorMessage] = useState(false)
