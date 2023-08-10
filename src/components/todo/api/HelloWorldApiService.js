@@ -15,10 +15,8 @@ export  const retrieveHelloBeanParam = (username, token) => apiClient.get(`/hell
                 //     headers: {
                 //         Authorization: token
                 //     }
-
                 // }
                 )
-      
 export  const  executeBasicAuthenticationService 
                     = (token) => apiClient.get(`/basicauth`, {
                         
