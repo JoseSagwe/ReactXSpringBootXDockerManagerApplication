@@ -3,7 +3,6 @@ import { createTodoApi, retrieveTodoApi, udpdateTodoApi  } from './api/TodoApiSe
 import { useAuth } from './security/AuthContext'
 import { useEffect, useState } from 'react'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
-
 export default function TodoComponent(){
     const {id} = useParams()
 
@@ -58,7 +57,6 @@ export default function TodoComponent(){
                 })
                 .catch(error => console.log(error))
             }
-       
     }
 
             //Validation function
