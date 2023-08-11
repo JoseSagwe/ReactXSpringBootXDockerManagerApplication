@@ -52,7 +52,6 @@ function ListTodosComponent() {
                  //.2 Update Todos List
                 refreshTodos()
             }
-           
         )
         .catch(error => console.log(error))
     }
@@ -65,8 +64,6 @@ function ListTodosComponent() {
     function addNewTodo(){
         navigate(`/todo/-1`)
     }
-
-
     return (
         <div className="container">
             <h1>Things You Want To Do!</h1>

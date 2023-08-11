@@ -65,7 +65,6 @@ export default function TodoComponent(){
             // description: 'Enter valid description' ,
             // targetDate: 'Enter valid targetDate'
         }
-
         if(values.description.length<5){
             errors.description = 'Enter atleast 5 characters'
         }
@@ -76,7 +75,6 @@ export default function TodoComponent(){
         console.log(values)
         return errors
     }
-
     return(
     <div className="container">
     <h1>Enter Todo Deatails</h1>
