@@ -5,7 +5,6 @@ import { useAuth } from "./security/AuthContext"
 import { useNavigate } from "react-router-dom"
 
 function ListTodosComponent() {
-
     //date
     const today = new Date()
 
@@ -41,12 +40,10 @@ function ListTodosComponent() {
         )
         .catch(error => console.log(error))
     }
-
     //Delete Todos
     function deleteTodo(id){
         console.log("clicked " + id)
-        deleteTodoApi(username, id)
-           
+        deleteTodoApi(username, id) 
         .then(
             () => {
                  //1.Display message of success
@@ -57,7 +54,6 @@ function ListTodosComponent() {
         )
         .catch(error => console.log(error))
     }
-
     //Update Todos
     function updateTodo(id){
         console.log("clicked " + id)

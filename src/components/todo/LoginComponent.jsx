@@ -58,7 +58,6 @@ export default function LoginComponent() {
 //         return null
 //     }
 // }
-
     return(
         <div className="LoginForm">
             <h1>Time To Log In To Your Favorite Application!!!</h1>
