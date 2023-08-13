@@ -20,7 +20,6 @@ function ListTodosComponent() {
     const [todos, setTodos] = useState([])
 
     const [message, setmessage] = useState(null)
-
     // const todos = [
     //                 // {id: 1, description: 'Learn AWS', done: false, targetDate:targetDate},
     //                 // {id: 2, description: 'Learn Full Stack Dev', done: false, targetDate:targetDate},

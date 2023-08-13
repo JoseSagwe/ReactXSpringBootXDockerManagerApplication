@@ -33,15 +33,11 @@ export default function WelcomeComponent(){
         //     .finally ( () => console.log('cleanup') )
         // }
         
-
          retrieveHelloBeanParam('Developer Joseph', authContext.token)
           .then( (response) => successfulResponse(response) )
             .catch ( (error) => errorResponse(error) )
             .finally ( () => console.log('cleanup') )
         }
-        
-
-
   function successfulResponse(response) {
       console.log(response)
     //   setMessage(response.data)
