@@ -47,7 +47,6 @@ export default function WelcomeComponent(){
     //   setMessage(response.data)
      setMessage(response.data.message)
   }
-
   function errorResponse(error) {
       console.log(error)
   }
@@ -64,5 +63,4 @@ export default function WelcomeComponent(){
         </div>
         </div>
     )
-
   }
