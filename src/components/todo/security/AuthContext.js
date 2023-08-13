@@ -11,8 +11,6 @@ export const useAuth = () => useContext(AuthContext)
 export default function AuthProvider({ children }) {
 
     //Put some state in the context
-    
-
     const [isAuthenticated, setAuthenticated] = useState(false)
 
     const [username, setUsername] = useState(null)
@@ -37,7 +35,6 @@ export default function AuthProvider({ children }) {
     //             return false
     //         }
     //     }
-
 
     ///BASIC AUTHENTICATION
         async function login(username, password){

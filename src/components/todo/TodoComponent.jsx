@@ -71,7 +71,6 @@ export default function TodoComponent(){
         if(values.targetDate == null || values.targetDate == ''){
             errors.targetDate = 'Enter Target Date'
         }
-
         console.log(values)
         return errors
     }
@@ -105,7 +104,6 @@ export default function TodoComponent(){
             </Form>
         )}
         </Formik>
-
     </div>
     </div>
     )
