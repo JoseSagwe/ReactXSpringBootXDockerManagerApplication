@@ -5,7 +5,6 @@ import {retrieveHelloBean, retrieveHelloBeanParam}  from './api/HelloWorldApiSer
 import { useAuth } from './security/AuthContext'
 
 export default function WelcomeComponent(){
-
     const {username} = useParams()
 
     const authContext = useAuth()

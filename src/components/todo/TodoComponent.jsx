@@ -19,7 +19,6 @@ export default function TodoComponent(){
     useEffect(
         () => retrieveTodos(), [id]
     )
-
     function retrieveTodos(){
         if(id !=-1){
         retrieveTodoApi(username, id)
@@ -30,7 +29,6 @@ export default function TodoComponent(){
         .catch(error => console.log(error))
     }
 }
-
         //Onsubmit function
     function onSubmit(values){
         console.log(values)
