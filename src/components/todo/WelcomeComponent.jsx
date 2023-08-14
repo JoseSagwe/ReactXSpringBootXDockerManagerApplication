@@ -13,7 +13,6 @@ export default function WelcomeComponent(){
 
     function callHelloRestApi(){
         console.log("called")
-        
         // axios.get('http://localhost:8080/greet')
         // .then( (response) => successfulResponse(response) )
         //   .catch ( (error) => errorResponse(error) )

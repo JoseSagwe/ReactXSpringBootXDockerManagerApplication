@@ -2,6 +2,7 @@ import { useState } from 'react'
 import {useNavigate} from 'react-router-dom'
 import { useAuth } from './security/AuthContext'
 
+
 export default function LoginComponent() {
 
     const [username, setUsername] = useState('')
@@ -29,6 +30,8 @@ export default function LoginComponent() {
             } else {
                 setShowErrorMessage(true)
             }
+
+            
         // if(username==='Developer Joseph' && password==='1234'){
         //     authContext.setAuthenticated(true)
         //     console.log('Success')
