@@ -58,7 +58,6 @@ export default function TodoComponent(){
                 .catch(error => console.log(error))
             }
     }
-
             //Validation function
     function validate(values){
         let errors = {
