@@ -4,7 +4,6 @@ import { useState } from 'react'
 import {retrieveHelloBean, retrieveHelloBeanParam}  from './api/HelloWorldApiService'
 import { useAuth } from './security/AuthContext'
 
-
 export default function WelcomeComponent(){
 
     const {username} = useParams()
@@ -30,7 +29,6 @@ export default function WelcomeComponent(){
         //     .catch ( (error) => errorResponse(error) )
         //     .finally ( () => console.log('cleanup') )
         // }
-        
          retrieveHelloBeanParam('Developer Joseph', authContext.token)
           .then( (response) => successfulResponse(response) )
             .catch ( (error) => errorResponse(error) )
