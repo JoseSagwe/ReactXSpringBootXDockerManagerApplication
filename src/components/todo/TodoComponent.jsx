@@ -16,7 +16,6 @@ export default function TodoComponent(){
 
     const username = authContext.username
 
-
     useEffect(
         () => retrieveTodos(), [id]
     )
