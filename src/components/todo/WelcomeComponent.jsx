@@ -4,6 +4,8 @@ import { useState } from 'react'
 import {retrieveHelloBean, retrieveHelloBeanParam}  from './api/HelloWorldApiService'
 import { useAuth } from './security/AuthContext'
 
+
+
 export default function WelcomeComponent(){
     const {username} = useParams()
 
