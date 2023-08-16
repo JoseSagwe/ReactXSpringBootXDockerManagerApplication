@@ -4,8 +4,6 @@ import { useState } from 'react'
 import {retrieveHelloBean, retrieveHelloBeanParam}  from './api/HelloWorldApiService'
 import { useAuth } from './security/AuthContext'
 
-
-
 export default function WelcomeComponent(){
     const {username} = useParams()
 
@@ -34,6 +32,8 @@ export default function WelcomeComponent(){
             .catch ( (error) => errorResponse(error) )
             .finally ( () => console.log('cleanup') )
         }
+
+        
   function successfulResponse(response) {
       console.log(response)
     //   setMessage(response.data)
@@ -42,6 +42,8 @@ export default function WelcomeComponent(){
   function errorResponse(error) {
       console.log(error)
   }
+
+
     return(
         <div className="Welcome">
         <div>

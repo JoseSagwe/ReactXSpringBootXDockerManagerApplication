@@ -17,6 +17,8 @@ export default function TodoApp(){
             return children
         return <Navigate to="/" />
     }
+
+    
     return(
         <div className="TodoApp">
             <AuthProvider>

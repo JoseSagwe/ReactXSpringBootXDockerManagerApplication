@@ -70,8 +70,6 @@ export default function AuthProvider({ children }) {
                     return false
         }
         }
-
-
     function logout() {
         setAuthenticated(false)
         setToken(null)
