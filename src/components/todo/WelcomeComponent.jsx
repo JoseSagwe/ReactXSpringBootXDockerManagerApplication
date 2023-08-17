@@ -33,7 +33,6 @@ export default function WelcomeComponent(){
             .finally ( () => console.log('cleanup') )
         }
 
-        
   function successfulResponse(response) {
       console.log(response)
     //   setMessage(response.data)
