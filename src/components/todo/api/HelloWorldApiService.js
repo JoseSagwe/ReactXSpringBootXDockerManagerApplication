@@ -1,5 +1,6 @@
 import { apiClient } from './ApiClient'
 
+
 // export default function retrieveHelloBean(){
 //     return(
 //     axios.get('http://localhost:8080/helloB')
@@ -19,7 +20,7 @@ export  const retrieveHelloBeanParam = (username, token) => apiClient.get(`/hell
                 
 
 
-                
+
 export  const  executeBasicAuthenticationService 
                     = (token) => apiClient.get(`/basicauth`, {
                         
