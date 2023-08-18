@@ -42,7 +42,6 @@ export default function WelcomeComponent(){
       console.log(error)
   }
 
-
     return(
         <div className="Welcome">
         <div>
