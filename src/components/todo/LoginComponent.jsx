@@ -32,8 +32,6 @@ export default function LoginComponent() {
                 setShowErrorMessage(true)
             }
 
-            
-            
         // if(username==='Developer Joseph' && password==='1234'){
         //     authContext.setAuthenticated(true)
         //     console.log('Success')
