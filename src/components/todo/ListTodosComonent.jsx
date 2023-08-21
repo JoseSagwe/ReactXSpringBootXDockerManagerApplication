@@ -4,10 +4,6 @@ import {retrieveAllTodosForUsernameApi, deleteTodoApi} from './api/TodoApiServic
 import { useAuth } from "./security/AuthContext"
 import { useNavigate } from "react-router-dom"
 
-
-
-
-
 function ListTodosComponent() {
     //date
     const today = new Date()
