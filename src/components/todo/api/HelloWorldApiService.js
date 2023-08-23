@@ -1,9 +1,4 @@
 import { apiClient } from './ApiClient'
-
-
-
-
-
 // export default function retrieveHelloBean(){
 //     return(
 //     axios.get('http://localhost:8080/helloB')
