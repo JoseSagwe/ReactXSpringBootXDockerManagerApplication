@@ -4,6 +4,9 @@ import { useAuth } from './security/AuthContext'
 
 
 
+
+
+
 function HeaderComponent() {
 
     const authContext = useAuth()
